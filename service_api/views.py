@@ -26,7 +26,6 @@ protokol_bb84 = ProtokolBB84()
 @parser_classes([PlainTextParser])
 def baca_sensor(request):
 
-
     # Data dari request masih berupa plain text
     body_request = request.data 
 
@@ -44,6 +43,8 @@ def baca_sensor(request):
 
 
     pengukuran = Pengukuran(
+        suhu_air = data['suhu_air'],
+        ph = data['ph'],
         total_solid_dissolve = data['total_solid_dissolve']
     )
 
