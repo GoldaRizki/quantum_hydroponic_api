@@ -39,13 +39,13 @@ def baca_sensor(request):
     plain_text = vigenere.dekripsi(kunci, classical_cipher)
 
     # Dimasukkan kedalam database lewat model dulu
-    data = json.loads(body_request)
+    data = json.loads(plain_text)
 
 
     pengukuran = Pengukuran(
         suhu_air = data['suhu_air'],
-        ph = data['ph'],
-        total_solid_dissolve = data['total_solid_dissolve']
+        ph = data['ph']
+       # total_solid_dissolve = data['total_solid_dissolve']
     )
 
     pengukuran.save()
