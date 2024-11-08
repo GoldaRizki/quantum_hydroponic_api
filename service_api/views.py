@@ -53,3 +53,14 @@ def baca_sensor(request):
 
     return Response()
 
+@api_view(['GET'])
+def data_terakhir(request):
+    
+    pengukuran = Pengukuran.objects.order_by('waktu_pengukuran').last()
+
+    data = {
+        "suhu_air": pengukuran.suhu_air,
+        "ph": pengukuran.ph
+    }
+
+    return Response(data)

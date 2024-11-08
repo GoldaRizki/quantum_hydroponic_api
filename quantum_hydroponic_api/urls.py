@@ -23,4 +23,5 @@ from service_api import views as service_api_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sensor/post', service_api_views.baca_sensor, name='kirim_data'),
+    path('sensor/get', service_api_views.data_terakhir, name='ambil_data'),
 ]
